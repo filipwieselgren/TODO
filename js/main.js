@@ -11,6 +11,13 @@ window.onload = function () {
   start();
 };
 
+if (localStorage.getItem("newTodo") != null) {
+  let localStorageArray = localStorage.getItem("newTodo");
+
+  newTodo = JSON.parse(localStorageArray);
+} else {
+}
+
 /*------IDn FRÅN INDEX.HTML ------*/
 let addTodo = document.getElementById("addTodo");
 let inputTodo = document.getElementById("inputTodo");
@@ -73,6 +80,31 @@ function createHtml() {
     }
   }
 
+  localStorage.setItem("newTodo", JSON.stringify(newTodo));
+
   //Rensa inputTodo value
   inputTodo.value = "";
+}
+
+function remove(e, i) {
+  newTodo.splice(i, 1);
+  createHtml();
+}
+
+function done(e, i) {
+  e.target.parentElement.classList.toggle("mystyle");
+  let taskText = e.target.parentElement.firstChild.textContent;
+  console.log(taskText);
+  // update the todo object in localStorage
+  let todos = JSON.parse(localStorage.getItem("newTodo"));
+  console.log(todos);
+
+  todos.forEach((todo) => {
+    if (todo.todoItem === taskText) {
+      todo.done = true;
+    }
+  });
+  console.log(todos);
+
+  localStorage.setItem("newTodo", JSON.stringify(todos));
 }
