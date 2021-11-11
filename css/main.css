@@ -14,6 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  /*-----TODO LIST-----*/
   /*-----IMAGE-----*/
 }
 body .titleContainer {
@@ -57,6 +58,64 @@ body #addTodo {
 body #addTodo:hover {
   background-color: rgba(250, 153, 67, 0.2);
 }
+body #containerTodo {
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+}
+body #containerTodo #listTodo {
+  list-style: none;
+  min-width: 82%;
+  max-width: 82%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body #containerTodo .divTodo {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+body #containerTodo .todoLi {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+}
+body #containerTodo .todoSpan {
+  border-bottom: 1px solid #5c5c5c;
+  width: 100%;
+}
+body #containerTodo .btnDone,
+body #containerTodo .btnTrash,
+body #containerTodo .fa-arrow-up,
+body #containerTodo .fa-arrow-down {
+  padding: 5px;
+  border-radius: 5px;
+  border: 0.5px solid #5c5c5c;
+  color: #5c5c5c;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 20px 0px 0px 10px;
+}
+body #containerTodo .btnDone:hover,
+body #containerTodo .btnDone:active {
+  background-color: #2c7339;
+}
+body #containerTodo .btnTrash:hover,
+body #containerTodo .btnTrash:active {
+  background-color: #e92727;
+}
+body #containerTodo .fa-check,
+body #containerTodo .fa-trash-alt {
+  pointer-events: none;
+}
+body #containerTodo .mystyle {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
 body #imgContainer {
   display: flex;
   justify-content: center;
@@ -80,6 +139,11 @@ body img {
 
   #inputTodo {
     width: 33% !important;
+  }
+
+  #listTodo {
+    min-width: 40% !important;
+    max-width: 40% !important;
   }
 
   img {
