@@ -4,10 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="/css/main.css" />
-    <title>Document</title>
+    <title>todo övning</title>
   </head>
   <body>
+    <header class="titleContainer">
+      <h1 class="title">Get things done</h1>
+    </header>
+    <form class="inputContainer">
+      <input
+        type="text"
+        id="inputTodo"
+        placeholder="Enter your todo here..."
+        required
+      />
+      <button id="addTodo" type="submit">Add todo</button>
+    </form>
+    <div id="containerTodo">
+      <ul id="listTodo"></ul>
+    </div>
+
+    <footer id="imgContainer">
+      <img
+        src="/images/sunset.png"
+        alt="bild på berg, fåglar och solen"
+        srcset=""
+      />
+    </footer>
+
     <script src="/js/main.js"></script>
   </body>
 </html>
