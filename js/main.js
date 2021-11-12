@@ -95,7 +95,7 @@ function done(e, i) {
   e.target.parentElement.classList.toggle("mystyle");
   let taskText = e.target.parentElement.firstChild.textContent;
   console.log(taskText);
-  // update the todo object in localStorage
+  // Uppdaterar todo object i localStorage
   let todos = JSON.parse(localStorage.getItem("newTodo"));
   console.log(todos);
 
