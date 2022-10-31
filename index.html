@@ -20,13 +20,18 @@
       <h1 class="title">Get things done</h1>
     </header>
     <form class="inputContainer">
-      <input
-        type="text"
-        id="inputTodo"
-        placeholder="Enter your todo here..."
-        required
-      />
-      <button id="addTodo" type="submit">Add todo</button>
+      <div class="addTodoContainer">
+        <input
+          type="text"
+          id="inputTodo"
+          placeholder="Enter your todo here..."
+          required
+        />
+        <button id="addTodo" type="submit">Add todo</button>
+      </div>
+      <div class="dateContainer">
+        <input type="date" id="date" min="2018-01-01" />
+      </div>
     </form>
     <div id="containerTodo">
       <ul id="listTodo"></ul>

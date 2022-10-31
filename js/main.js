@@ -1,6 +1,7 @@
 class Todo {
-  constructor(todo) {
+  constructor(todo, deadline) {
     this.todoItem = todo;
+    this.deadline = deadline;
     this.done = false;
   }
 }
@@ -18,9 +19,12 @@ if (localStorage.getItem("newTodo") != null) {
 } else {
 }
 
-let addTodo = document.getElementById("addTodo");
-let inputTodo = document.getElementById("inputTodo");
-let listTodo = document.getElementById("listTodo");
+const addTodo = document.getElementById("addTodo");
+const inputTodo = document.getElementById("inputTodo");
+const inputDate = document.getElementById("date");
+const listTodo = document.getElementById("listTodo");
+
+inputDate.min = new Date().toISOString().split("T")[0];
 
 function start() {
   addTodo.addEventListener("click", addTodoBtn);
@@ -29,10 +33,13 @@ function start() {
 
 function addTodoBtn(event) {
   event.preventDefault();
+  console.log("inputDate:", inputDate);
+  let todoItem = new Todo(inputTodo.value, inputDate.value);
 
-  let todoItem = new Todo(inputTodo.value);
+  console.log("todoItem:", todoItem);
 
   newTodo.push(todoItem);
+  console.log("newTodo:", newTodo);
 
   createHtml();
 }
@@ -86,17 +93,15 @@ function remove(e, i) {
 function done(e, i) {
   e.target.parentElement.classList.toggle("mystyle");
   let taskText = e.target.parentElement.firstChild.textContent;
-  console.log(taskText);
 
   let todos = JSON.parse(localStorage.getItem("newTodo"));
-  console.log(todos);
 
   todos.forEach((todo) => {
     if (todo.todoItem === taskText) {
       todo.done = true;
+      document.querySelector(".btnDone").style.background = "transparent";
     }
   });
-  console.log(todos);
 
   localStorage.setItem("newTodo", JSON.stringify(todos));
 }
