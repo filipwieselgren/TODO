@@ -46,6 +46,10 @@ body {
       width: 60%;
       height: 3vh;
       font-size: 1rem;
+
+      &:focus-visible {
+        outline: 0;
+      }
     }
   }
 
