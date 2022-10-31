@@ -50,16 +50,14 @@ setDeadLine.addEventListener("click", (event) => {
 function setBtnTxt() {
   if (btnTxt === false) {
     setDeadLine.innerHTML = "Set deadline ";
-    console.log(setDeadLine.innerHTML);
   } else {
     setDeadLine.innerHTML = "Close";
-    console.log(setDeadLine.innerHTML);
   }
 }
 
 function addTodoBtn(event) {
   event.preventDefault();
-  console.log("inputDate:", typeof inputDate.valu);
+
   let dateDeadline = inputDate.value;
   dateDeadline = dateDeadline.replace("T", " ");
   let todoItem = new Todo(inputTodo.value, dateDeadline);
@@ -95,7 +93,6 @@ function createHtml() {
         : `${newTodo[i].todoItem} | ${newTodo[i].deadline} Deadline: No deadline`;
     todoSpan.classList.add("todoSpan");
     todoLi.appendChild(todoSpan);
-    console.log(newTodo[i].todoItem);
 
     let btnDone = document.createElement("button");
     btnDone.classList.add("btnDone");
