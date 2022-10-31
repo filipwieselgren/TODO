@@ -7,6 +7,14 @@ class Todo {
 }
 
 let newTodo = [];
+let btnTxt = false;
+let date = new Date();
+const addTodo = document.getElementById("addTodo");
+const inputTodo = document.getElementById("inputTodo");
+const inputDate = document.getElementById("date");
+const listTodo = document.getElementById("listTodo");
+const setDeadLine = document.querySelector(".btnDeadline");
+const datePicker = document.querySelector(".datePicker");
 
 window.onload = function () {
   start();
@@ -19,13 +27,7 @@ if (localStorage.getItem("newTodo") != null) {
 } else {
 }
 
-const addTodo = document.getElementById("addTodo");
-const inputTodo = document.getElementById("inputTodo");
-const inputDate = document.getElementById("date");
-const listTodo = document.getElementById("listTodo");
-
 inputDate.min = new Date().toISOString().split("T")[0];
-var date = new Date();
 date.setSeconds(0, 0);
 inputDate.value = date;
 
@@ -33,11 +35,6 @@ function start() {
   addTodo.addEventListener("click", addTodoBtn);
   createHtml();
 }
-
-let btnTxt = false;
-const setDeadLine = document.querySelector(".btnDeadline");
-
-const datePicker = document.querySelector(".datePicker");
 
 setDeadLine.addEventListener("click", (event) => {
   event.preventDefault();
