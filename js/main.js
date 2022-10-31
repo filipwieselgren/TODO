@@ -25,10 +25,38 @@ const inputDate = document.getElementById("date");
 const listTodo = document.getElementById("listTodo");
 
 inputDate.min = new Date().toISOString().split("T")[0];
+var date = new Date();
+date.setSeconds(0, 0);
+inputDate.value = date;
+
+console.log(inputDate.start);
 
 function start() {
   addTodo.addEventListener("click", addTodoBtn);
   createHtml();
+}
+
+let btnTxt = false;
+const setDeadLine = document.querySelector(".btnDeadline");
+
+const datePicker = document.querySelector(".datePicker");
+
+setDeadLine.addEventListener("click", (event) => {
+  event.preventDefault();
+  datePicker.classList.toggle("datePickerShow");
+  btnTxt = !btnTxt;
+
+  setBtnTxt();
+});
+
+function setBtnTxt() {
+  if (btnTxt === false) {
+    setDeadLine.innerHTML = "Set deadline ";
+    console.log(setDeadLine.innerHTML);
+  } else {
+    setDeadLine.innerHTML = "Close";
+    console.log(setDeadLine.innerHTML);
+  }
 }
 
 function addTodoBtn(event) {
@@ -36,23 +64,32 @@ function addTodoBtn(event) {
   console.log("inputDate:", inputDate);
   let todoItem = new Todo(inputTodo.value, inputDate.value);
 
-  console.log("todoItem:", todoItem);
+  datePicker.classList.remove("datePickerShow");
+  btnTxt = false;
+  setBtnTxt();
 
-  newTodo.push(todoItem);
-  console.log("newTodo:", newTodo);
+  if (todoItem.todoItem === "") {
+    document.getElementById("inputTodo").classList.add("noTodo");
+  } else {
+    const placeholderTxt = document
+      .getElementById("inputTodo")
+      .classList.remove("noTodo");
 
-  createHtml();
+    newTodo.push(todoItem);
+
+    createHtml();
+  }
 }
 
 function createHtml() {
-  let ul = document.getElementById("listTodo");
+  const ul = document.getElementById("listTodo");
   ul.innerHTML = "";
 
   for (let i = 0; i < newTodo.length; i++) {
-    let todoLi = document.createElement("li");
+    const todoLi = document.createElement("li");
     todoLi.classList.add("todoLi");
     let todoSpan = document.createElement("span");
-    todoSpan.innerText = newTodo[i].todoItem;
+    todoSpan.innerText = `${newTodo[i].todoItem} | Deadline: ${newTodo[i].deadline}`;
     todoSpan.classList.add("todoSpan");
     todoLi.appendChild(todoSpan);
     console.log(newTodo[i].todoItem);

@@ -17,6 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  align-items: center;
 
   .titleContainer {
     min-height: 25vh;
@@ -31,20 +32,28 @@ body {
     }
   }
 
+  .addTodoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    width: 40vw;
+  }
+
   .inputContainer {
     min-height: 10vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
     margin-top: 20px;
+    align-items: center;
 
     #inputTodo {
       border: none;
       background-color: transparent;
       border-bottom: 1px solid #5c5c5c;
-      width: 60%;
+      width: 40%;
       height: 3vh;
       font-size: 1rem;
       border-radius: 0;
@@ -53,6 +62,46 @@ body {
         outline: 0;
       }
     }
+
+    .dateContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .datePicker,
+    .deadlineTxt {
+      display: none;
+    }
+    .datePickerShow,
+    .deadlineTxtShow {
+      display: block;
+    }
+
+    #date {
+      background-color: transparent;
+    }
+
+    input#date::-webkit-calendar-picker-indicator {
+      cursor: pointer;
+    }
+    .datePickerBtnContainer {
+      display: flex;
+    }
+    .btnDeadline {
+      border: 1px solid #5c5c5c;
+      background-color: transparent;
+      border-radius: 5px;
+      text-transform: uppercase;
+      padding: 10px;
+      color: #5c5c5c;
+      box-shadow: 3px 3px 1px 1px #494949;
+      cursor: pointer;
+    }
+  }
+
+  .noTodo::placeholder {
+    color: red !important;
   }
 
   input {
@@ -69,12 +118,12 @@ body {
     border-radius: 5px;
     text-transform: uppercase;
     padding: 10px;
-    margin-bottom: 2vh;
     color: #5c5c5c;
     box-shadow: 3px 3px 1px 1px #494949;
     cursor: pointer;
   }
-  #addTodo:hover {
+  #addTodo:hover,
+  .datePickerBtnContainer > button:hover {
     background-color: rgba(250, 153, 67, 0.2);
   }
 
@@ -86,8 +135,7 @@ body {
     z-index: 3;
     #listTodo {
       list-style: none;
-      min-width: 82%;
-      max-width: 82%;
+      width: 50vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -161,15 +209,6 @@ body {
 @media screen and (min-width: 500px) {
   .titleContainer {
     min-height: 20vh !important;
-  }
-
-  #inputTodo {
-    width: 33% !important;
-  }
-
-  #listTodo {
-    min-width: 40% !important;
-    max-width: 40% !important;
   }
 
   img {

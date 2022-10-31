@@ -14,6 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  align-items: center;
   /*-----TODO LIST-----*/
   /*-----IMAGE-----*/
 }
@@ -28,21 +29,75 @@ body .titleContainer .title {
   font-weight: 100;
   text-transform: uppercase;
 }
+body .addTodoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+  width: 40vw;
+}
 body .inputContainer {
   min-height: 10vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 25px;
   margin-top: 20px;
+  align-items: center;
 }
 body .inputContainer #inputTodo {
   border: none;
   background-color: transparent;
   border-bottom: 1px solid #5c5c5c;
-  width: 60%;
+  width: 40%;
   height: 3vh;
   font-size: 1rem;
+  border-radius: 0;
+}
+body .inputContainer #inputTodo:focus-visible {
+  outline: 0;
+}
+body .inputContainer .dateContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .inputContainer .datePicker,
+body .inputContainer .deadlineTxt {
+  display: none;
+}
+body .inputContainer .datePickerShow,
+body .inputContainer .deadlineTxtShow {
+  display: block;
+}
+body .inputContainer #date {
+  background-color: transparent;
+}
+body .inputContainer input#date::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+body .inputContainer .datePickerBtnContainer {
+  display: flex;
+}
+body .inputContainer .btnDeadline {
+  border: 1px solid #5c5c5c;
+  background-color: transparent;
+  border-radius: 5px;
+  text-transform: uppercase;
+  padding: 10px;
+  color: #5c5c5c;
+  box-shadow: 3px 3px 1px 1px #494949;
+  cursor: pointer;
+}
+body .noTodo::placeholder {
+  color: red !important;
+}
+body input {
+  border: 0;
+  outline: 0;
+}
+body input:focus {
+  outline: none !important;
 }
 body #addTodo {
   border: 1px solid #5c5c5c;
@@ -50,12 +105,12 @@ body #addTodo {
   border-radius: 5px;
   text-transform: uppercase;
   padding: 10px;
-  margin-bottom: 2vh;
   color: #5c5c5c;
   box-shadow: 3px 3px 1px 1px #494949;
   cursor: pointer;
 }
-body #addTodo:hover {
+body #addTodo:hover,
+body .datePickerBtnContainer > button:hover {
   background-color: rgba(250, 153, 67, 0.2);
 }
 body #containerTodo {
@@ -65,8 +120,7 @@ body #containerTodo {
 }
 body #containerTodo #listTodo {
   list-style: none;
-  min-width: 82%;
-  max-width: 82%;
+  width: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,14 +154,6 @@ body #containerTodo .fa-arrow-down {
   cursor: pointer;
   margin: 20px 0px 0px 10px;
 }
-body #containerTodo .btnDone:hover,
-body #containerTodo .btnDone:active {
-  background-color: #2c7339;
-}
-body #containerTodo .btnTrash:hover,
-body #containerTodo .btnTrash:active {
-  background-color: #e92727;
-}
 body #containerTodo .fa-check,
 body #containerTodo .fa-trash-alt {
   pointer-events: none;
@@ -135,15 +181,6 @@ body img {
 @media screen and (min-width: 500px) {
   .titleContainer {
     min-height: 20vh !important;
-  }
-
-  #inputTodo {
-    width: 33% !important;
-  }
-
-  #listTodo {
-    min-width: 40% !important;
-    max-width: 40% !important;
   }
 
   img {

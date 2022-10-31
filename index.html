@@ -24,13 +24,16 @@
         <input
           type="text"
           id="inputTodo"
-          placeholder="Enter your todo here..."
+          placeholder="Write todos here..."
           required
         />
         <button id="addTodo" type="submit">Add todo</button>
+        <button class="btnDeadline">Set a deadline</button>
       </div>
       <div class="dateContainer">
-        <input type="date" id="date" min="2018-01-01" />
+        <div class="datePickerBtnContainer">
+          <input class="datePicker" type="datetime-local" id="date" />
+        </div>
       </div>
     </form>
     <div id="containerTodo">
