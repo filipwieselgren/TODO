@@ -49,6 +49,14 @@ body {
     }
   }
 
+  input {
+    border: 0;
+    outline: 0;
+  }
+  input:focus {
+    outline: none !important;
+  }
+
   #addTodo {
     border: 1px solid #5c5c5c;
     background-color: transparent;

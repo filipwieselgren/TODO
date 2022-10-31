@@ -18,33 +18,26 @@ if (localStorage.getItem("newTodo") != null) {
 } else {
 }
 
-/*------IDn FRÅN INDEX.HTML ------*/
 let addTodo = document.getElementById("addTodo");
 let inputTodo = document.getElementById("inputTodo");
 let listTodo = document.getElementById("listTodo");
 
-/*-----ADD TASK FUNCTION-------*/
-
 function start() {
-  //lyssnar efter ett klick på ADD TASK-knappen
   addTodo.addEventListener("click", addTodoBtn);
   createHtml();
 }
 
 function addTodoBtn(event) {
-  // Stoppar form från submitting
   event.preventDefault();
 
   let todoItem = new Todo(inputTodo.value);
 
-  // lägger till värdet från input i arrayn newTodo
   newTodo.push(todoItem);
-  console.log(newTodo);
+
   createHtml();
 }
 
 function createHtml() {
-  // Skapar en div-behållare och en class för min lista
   let ul = document.getElementById("listTodo");
   ul.innerHTML = "";
 
@@ -55,8 +48,8 @@ function createHtml() {
     todoSpan.innerText = newTodo[i].todoItem;
     todoSpan.classList.add("todoSpan");
     todoLi.appendChild(todoSpan);
+    console.log(newTodo[i].todoItem);
 
-    // Knappen för att markera att man är klar med ett task
     let btnDone = document.createElement("button");
     btnDone.classList.add("btnDone");
     btnDone.innerHTML = "<i class='fas fa-check'></i>";
@@ -64,7 +57,7 @@ function createHtml() {
       done(e, i);
     });
     todoLi.appendChild(btnDone);
-    // Knappen för att kasta ett task
+
     let btnTrash = document.createElement("button");
     btnTrash.classList.add("btnTrash");
     btnTrash.innerHTML = "<i class='far fa-trash-alt'></i>";
@@ -72,7 +65,7 @@ function createHtml() {
       remove(e, i);
     });
     todoLi.appendChild(btnTrash);
-    // Lägger till min todoLi in min todoContainer
+
     ul.appendChild(todoLi);
 
     if (newTodo[i].done === true) {
@@ -82,7 +75,6 @@ function createHtml() {
 
   localStorage.setItem("newTodo", JSON.stringify(newTodo));
 
-  //Rensa inputTodo value
   inputTodo.value = "";
 }
 
@@ -95,7 +87,7 @@ function done(e, i) {
   e.target.parentElement.classList.toggle("mystyle");
   let taskText = e.target.parentElement.firstChild.textContent;
   console.log(taskText);
-  // Uppdaterar todo object i localStorage
+
   let todos = JSON.parse(localStorage.getItem("newTodo"));
   console.log(todos);
 
