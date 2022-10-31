@@ -29,8 +29,6 @@ var date = new Date();
 date.setSeconds(0, 0);
 inputDate.value = date;
 
-console.log(inputDate.start);
-
 function start() {
   addTodo.addEventListener("click", addTodoBtn);
   createHtml();
@@ -61,8 +59,10 @@ function setBtnTxt() {
 
 function addTodoBtn(event) {
   event.preventDefault();
-  console.log("inputDate:", inputDate);
-  let todoItem = new Todo(inputTodo.value, inputDate.value);
+  console.log("inputDate:", typeof inputDate.valu);
+  let dateDeadline = inputDate.value;
+  dateDeadline = dateDeadline.replace("T", " ");
+  let todoItem = new Todo(inputTodo.value, dateDeadline);
 
   datePicker.classList.remove("datePickerShow");
   btnTxt = false;
@@ -89,7 +89,10 @@ function createHtml() {
     const todoLi = document.createElement("li");
     todoLi.classList.add("todoLi");
     let todoSpan = document.createElement("span");
-    todoSpan.innerText = `${newTodo[i].todoItem} | Deadline: ${newTodo[i].deadline}`;
+    todoSpan.innerText =
+      newTodo[i].deadline !== ""
+        ? `${newTodo[i].todoItem} | Deadline: ${newTodo[i].deadline}`
+        : `${newTodo[i].todoItem} | ${newTodo[i].deadline} Deadline: No deadline`;
     todoSpan.classList.add("todoSpan");
     todoLi.appendChild(todoSpan);
     console.log(newTodo[i].todoItem);
