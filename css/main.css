@@ -110,7 +110,7 @@ body #addTodo {
   cursor: pointer;
 }
 body #addTodo:hover,
-body .datePickerBtnContainer > button:hover {
+body .btnDeadline:hover {
   background-color: rgba(250, 153, 67, 0.2);
 }
 body #containerTodo {
