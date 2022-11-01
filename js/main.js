@@ -15,8 +15,8 @@ const inputDate = document.getElementById("date");
 const listTodo = document.getElementById("listTodo");
 const setDeadLine = document.querySelector(".btnDeadline");
 const datePicker = document.querySelector(".datePicker");
-const arrowUp = document.querySelector(".arrowUp");
-const arrowDown = document.querySelector(".arrowDown");
+const arrowUp = document.querySelector(".arrowUpContainer");
+const arrowDown = document.querySelector(".arrowDownContainer");
 
 window.onload = function () {
   start();
@@ -170,8 +170,6 @@ arrowUp.addEventListener("click", () => {
     return Date.parse(a.deadline) - Date.parse(b.deadline);
   });
 
-  newTodo.push(sortted);
-
   console.log(sortted);
 
   createHtml();
@@ -182,8 +180,6 @@ arrowDown.addEventListener("click", () => {
   let sortted = newTodo.sort((a, b) => {
     return Date.parse(b.deadline) - Date.parse(a.deadline);
   });
-
-  newTodo.push(sortted);
 
   console.log(sortted);
 

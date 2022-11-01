@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+footer {
+  z-index: -1;
+}
+
 body {
   min-height: 100vh;
   background-image: linear-gradient(180deg, rgba(249, 198, 55, 0.4), rgba(250, 153, 67, 0.4));
@@ -196,18 +200,21 @@ body footer > img {
 body .sortContainer {
   width: 40vw !important;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
+  margin: 10px 0 10px 0;
 }
 body .sortContainer .sortTxt {
   text-transform: uppercase;
   margin: 0 10px 0 10px;
 }
-body .sortContainer .sortArrow {
-  width: 2rem;
+body .sortContainer .arrowContainer {
   border: 0.5px solid #5c5c5c;
   border-radius: 5px;
   padding: 5px;
+}
+body .sortContainer .sortArrow {
+  width: 1.5rem;
 }
 body .sortContainer .arrowDown {
   transform: rotate(-90deg);
