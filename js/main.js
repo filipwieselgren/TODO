@@ -93,10 +93,13 @@ function createHtml(value) {
     let todoItemContainer = document.createElement("div");
 
     let inputD = new Date(newTodo[i].deadline);
+    console.log(inputD);
     todoSpan.innerText = newTodo[i].todoItem;
     todoDeadline.innerText =
       inputD.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
         ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]}`
+        : inputD == "Invalid Date"
+        ? "No deadline"
         : `Deadline: ${newTodo[i].deadline} `;
     todoSpan.classList.add("todoSpan");
     todoDeadline.classList.add("todoDeadline");
