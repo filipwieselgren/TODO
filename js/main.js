@@ -28,8 +28,9 @@ if (localStorage.getItem("newTodo") != null) {
 }
 
 inputDate.min = new Date().toISOString().split("T")[0];
-date.setSeconds(0, 0);
-inputDate.value = date;
+// date.setHours(0, 0, 0, 0);
+// date.setSeconds(0, 0);
+// inputDate.value = date;
 
 function start() {
   addTodo.addEventListener("click", addTodoBtn);
@@ -58,7 +59,6 @@ function addTodoBtn(event) {
   let dateDeadline = inputDate.value;
   dateDeadline = dateDeadline.replace("T", " ");
   let todoItem = new Todo(inputTodo.value, dateDeadline);
-  inputDate.value = "";
 
   datePicker.classList.remove("datePickerShow");
   btnTxt = false;
@@ -73,22 +73,30 @@ function addTodoBtn(event) {
 
     newTodo.push(todoItem);
 
-    createHtml();
+    createHtml(inputDate.value);
   }
 }
 
-function createHtml() {
+function createHtml(value) {
   const ul = document.getElementById("listTodo");
   ul.innerHTML = "";
+  const tomorrow = "Tomorrow at";
+  const noDeadline = "No deadline";
+
+  let todaysDate = new Date();
 
   for (let i = 0; i < newTodo.length; i++) {
     const todoLi = document.createElement("li");
     todoLi.classList.add("todoLi");
     let todoSpan = document.createElement("span");
+
+    let inputD = new Date(newTodo[i].deadline);
     todoSpan.innerText =
-      newTodo[i].deadline !== ""
-        ? `${newTodo[i].todoItem} | Deadline: ${newTodo[i].deadline}`
-        : `${newTodo[i].todoItem} | ${newTodo[i].deadline} Deadline: No deadline`;
+      inputD.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
+        ? `${newTodo[i].todoItem} | Deadline: Today at ${
+            newTodo[i].deadline.split(" ")[1]
+          }`
+        : `${newTodo[i].todoItem} | Deadline: ${newTodo[i].deadline} `;
     todoSpan.classList.add("todoSpan");
     todoLi.appendChild(todoSpan);
 
@@ -117,6 +125,7 @@ function createHtml() {
 
   localStorage.setItem("newTodo", JSON.stringify(newTodo));
 
+  inputDate.value = "";
   inputTodo.value = "";
 }
 
