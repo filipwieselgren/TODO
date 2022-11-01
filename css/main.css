@@ -149,9 +149,17 @@ body #containerTodo .todoLi {
   align-items: flex-end;
   width: 100%;
 }
+body #containerTodo .todoItemContainer {
+  width: 100%;
+}
 body #containerTodo .todoSpan {
+  width: 100%;
+  margin-bottom: 10px;
+}
+body #containerTodo .todoDeadline {
   border-bottom: 1px solid #5c5c5c;
   width: 100%;
+  font-size: 0.8rem;
 }
 body #containerTodo .btnDone,
 body #containerTodo .btnTrash,

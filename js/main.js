@@ -88,17 +88,22 @@ function createHtml(value) {
   for (let i = 0; i < newTodo.length; i++) {
     const todoLi = document.createElement("li");
     todoLi.classList.add("todoLi");
-    let todoSpan = document.createElement("span");
+    let todoSpan = document.createElement("div");
+    let todoDeadline = document.createElement("div");
+    let todoItemContainer = document.createElement("div");
 
     let inputD = new Date(newTodo[i].deadline);
-    todoSpan.innerText =
+    todoSpan.innerText = newTodo[i].todoItem;
+    todoDeadline.innerText =
       inputD.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
-        ? `${newTodo[i].todoItem} | Deadline: Today at ${
-            newTodo[i].deadline.split(" ")[1]
-          }`
-        : `${newTodo[i].todoItem} | Deadline: ${newTodo[i].deadline} `;
+        ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]}`
+        : `Deadline: ${newTodo[i].deadline} `;
     todoSpan.classList.add("todoSpan");
-    todoLi.appendChild(todoSpan);
+    todoDeadline.classList.add("todoDeadline");
+    todoItemContainer.classList.add("todoItemContainer");
+    todoLi.appendChild(todoItemContainer);
+    todoItemContainer.appendChild(todoSpan);
+    todoItemContainer.appendChild(todoDeadline);
 
     let btnDone = document.createElement("button");
     btnDone.classList.add("btnDone");

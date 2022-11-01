@@ -168,9 +168,18 @@ body {
       width: 100%;
     }
 
+    .todoItemContainer {
+      width: 100%;
+    }
     .todoSpan {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .todoDeadline {
       border-bottom: 1px solid #5c5c5c;
       width: 100%;
+      font-size: 0.8rem;
     }
 
     .btnDone,
