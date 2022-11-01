@@ -85,9 +85,6 @@ body {
       background-color: transparent;
     }
 
-    input#date::-webkit-calendar-picker-indicator {
-      cursor: pointer;
-    }
     .datePickerBtnContainer {
       display: flex;
       width: 100%;
@@ -103,7 +100,6 @@ body {
       padding: 10px;
       color: #5c5c5c;
       box-shadow: 3px 3px 1px 1px #494949;
-      cursor: pointer;
       min-width: 25%;
       max-width: 25%;
     }
@@ -129,13 +125,8 @@ body {
     padding: 10px;
     color: #5c5c5c;
     box-shadow: 3px 3px 1px 1px #494949;
-    cursor: pointer;
     width: 80%;
     margin-bottom: 20px;
-  }
-  #addTodo:hover,
-  .btnDeadline:hover {
-    background-color: rgba(250, 153, 67, 0.2);
   }
 
   /*-----TODO LIST-----*/
@@ -188,7 +179,6 @@ body {
       border: 0.5px solid #5c5c5c;
       color: #5c5c5c;
       background-color: transparent;
-      cursor: pointer;
       margin: 20px 0px 0px 10px;
     }
 
@@ -237,6 +227,18 @@ body {
 /*-----MEDIA QUERIES-----*/
 
 @media screen and (min-width: 500px) {
+  #addTodo:hover,
+  .btnDeadline:hover,
+  .arrowContainer:hover,
+  .btnDone:hover,
+  .btnTrash:hover {
+    background-color: rgba(250, 153, 67, 0.2);
+    cursor: pointer;
+  }
+
+  input#date::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+  }
   .titleContainer {
     min-height: 20vh !important;
   }
@@ -247,9 +249,5 @@ body {
 
   .sortContainer {
     width: 40vw !important;
-  }
-
-  .test:hover {
-    cursor: pointer;
   }
 }
