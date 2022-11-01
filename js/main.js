@@ -15,6 +15,8 @@ const inputDate = document.getElementById("date");
 const listTodo = document.getElementById("listTodo");
 const setDeadLine = document.querySelector(".btnDeadline");
 const datePicker = document.querySelector(".datePicker");
+const arrowUp = document.querySelector(".arrowUp");
+const arrowDown = document.querySelector(".arrowDown");
 
 window.onload = function () {
   start();
@@ -28,9 +30,6 @@ if (localStorage.getItem("newTodo") != null) {
 }
 
 inputDate.min = new Date().toISOString().split("T")[0];
-// date.setHours(0, 0, 0, 0);
-// date.setSeconds(0, 0);
-// inputDate.value = date;
 
 function start() {
   addTodo.addEventListener("click", addTodoBtn);
@@ -73,11 +72,11 @@ function addTodoBtn(event) {
 
     newTodo.push(todoItem);
 
-    createHtml(inputDate.value);
+    createHtml();
   }
 }
 
-function createHtml(value) {
+function createHtml() {
   const ul = document.getElementById("listTodo");
   ul.innerHTML = "";
 
@@ -164,3 +163,29 @@ function done(e, i) {
   });
   localStorage.setItem("newTodo", JSON.stringify(todos));
 }
+
+arrowUp.addEventListener("click", () => {
+  console.log("klick");
+  let sortted = newTodo.sort((a, b) => {
+    return Date.parse(a.deadline) - Date.parse(b.deadline);
+  });
+
+  newTodo.push(sortted);
+
+  console.log(sortted);
+
+  createHtml();
+});
+
+arrowDown.addEventListener("click", () => {
+  console.log("klick");
+  let sortted = newTodo.sort((a, b) => {
+    return Date.parse(b.deadline) - Date.parse(a.deadline);
+  });
+
+  newTodo.push(sortted);
+
+  console.log(sortted);
+
+  createHtml();
+});

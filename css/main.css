@@ -162,9 +162,7 @@ body #containerTodo .todoDeadline {
   font-size: 0.8rem;
 }
 body #containerTodo .btnDone,
-body #containerTodo .btnTrash,
-body #containerTodo .fa-arrow-up,
-body #containerTodo .fa-arrow-down {
+body #containerTodo .btnTrash {
   padding: 5px;
   border-radius: 5px;
   border: 0.5px solid #5c5c5c;
@@ -190,10 +188,32 @@ body #imgContainer {
   bottom: 0;
   width: 100%;
 }
-body img {
+body footer > img {
   height: 30vh;
   width: 100vw;
   justify-self: flex-end;
+}
+body .sortContainer {
+  width: 40vw !important;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+body .sortContainer .sortTxt {
+  text-transform: uppercase;
+  margin: 0 10px 0 10px;
+}
+body .sortContainer .sortArrow {
+  width: 2rem;
+  border: 0.5px solid #5c5c5c;
+  border-radius: 5px;
+  padding: 5px;
+}
+body .sortContainer .arrowDown {
+  transform: rotate(-90deg);
+}
+body .sortContainer .arrowUp {
+  transform: rotate(90deg);
 }
 
 /*-----MEDIA QUERIES-----*/
@@ -206,8 +226,16 @@ body img {
     width: 40vw !important;
   }
 
-  img {
+  footer > img {
     width: 33vw !important;
+  }
+
+  .sortContainer {
+    width: 40vw !important;
+  }
+
+  .test:hover {
+    cursor: pointer;
   }
 }
 

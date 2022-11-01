@@ -183,9 +183,7 @@ body {
     }
 
     .btnDone,
-    .btnTrash,
-    .fa-arrow-up,
-    .fa-arrow-down {
+    .btnTrash {
       padding: 5px;
       border-radius: 5px;
       border: 0.5px solid #5c5c5c;
@@ -218,10 +216,34 @@ body {
     width: 100%;
   }
 
-  img {
+  footer > img {
     height: 30vh;
     width: 100vw;
     justify-self: flex-end;
+  }
+
+  .sortContainer {
+    width: 40vw !important;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .sortTxt {
+      text-transform: uppercase;
+      margin: 0 10px 0 10px;
+    }
+    .sortArrow {
+      width: 2rem;
+      border: 0.5px solid #5c5c5c;
+      border-radius: 5px;
+      padding: 5px;
+    }
+    .arrowDown {
+      transform: rotate(-90deg);
+    }
+    .arrowUp {
+      transform: rotate(90deg);
+    }
   }
 }
 
@@ -236,7 +258,15 @@ body {
     width: 40vw !important;
   }
 
-  img {
+  footer > img {
     width: 33vw !important;
+  }
+
+  .sortContainer {
+    width: 40vw !important;
+  }
+
+  .test:hover {
+    cursor: pointer;
   }
 }
