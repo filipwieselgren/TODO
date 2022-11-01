@@ -94,8 +94,6 @@ body .inputContainer .btnDeadline {
   color: #5c5c5c;
   box-shadow: 3px 3px 1px 1px #494949;
   cursor: pointer;
-  width: 80%;
-  margin-bottom: 20px;
 }
 body .noTodo::placeholder {
   color: red !important;
@@ -116,12 +114,14 @@ body #addTodo {
   color: #5c5c5c;
   box-shadow: 3px 3px 1px 1px #494949;
   cursor: pointer;
+  width: 80%;
+  margin-bottom: 20px;
 }
 body #addTodo:hover,
 body .btnDeadline:hover {
   background-color: rgba(250, 153, 67, 0.2);
 }
-body #addTodo {
+body .btnDeadline {
   min-width: 20%;
 }
 body #containerTodo {

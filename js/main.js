@@ -140,6 +140,7 @@ function remove(e, i) {
 }
 
 function done(e, i) {
+  console.log("klick 1");
   e.target.parentElement.classList.toggle("mystyle");
   let taskText = e.target.parentElement.firstChild.textContent;
 
@@ -151,6 +152,5 @@ function done(e, i) {
       document.querySelector(".btnDone").style.background = "transparent";
     }
   });
-
   localStorage.setItem("newTodo", JSON.stringify(todos));
 }
