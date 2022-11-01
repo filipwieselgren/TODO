@@ -90,8 +90,10 @@ function createHtml(value) {
     const todaysDate = new Date();
     const inputD = new Date(newTodo[i].deadline);
     const tomorrow = new Date(todaysDate);
+    const yesterday = new Date(todaysDate);
 
     tomorrow.setDate(tomorrow.getDate() + 1);
+    yesterday.setDate(yesterday.getDate() - 1);
 
     todoSpan.innerText = newTodo[i].todoItem;
     todoDeadline.innerText =
@@ -101,6 +103,10 @@ function createHtml(value) {
         ? "No deadline"
         : inputD.setHours(0, 0, 0, 0) == tomorrow.setHours(0, 0, 0, 0)
         ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]}`
+        : inputD.setHours(0, 0, 0, 0) == yesterday.setHours(0, 0, 0, 0)
+        ? `Deadline: Yesterday`
+        : inputD.setHours(0, 0, 0, 0) < yesterday.setHours(0, 0, 0, 0)
+        ? `Deadline: Was more than one day ago`
         : `Deadline: ${newTodo[i].deadline} `;
     todoSpan.classList.add("todoSpan");
     todoDeadline.classList.add("todoDeadline");
