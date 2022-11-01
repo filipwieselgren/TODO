@@ -107,6 +107,8 @@ body {
       color: #5c5c5c;
       box-shadow: 3px 3px 1px 1px #494949;
       cursor: pointer;
+      min-width: 25%;
+      max-width: 25%;
     }
   }
 
@@ -137,10 +139,6 @@ body {
   #addTodo:hover,
   .btnDeadline:hover {
     background-color: rgba(250, 153, 67, 0.2);
-  }
-
-  .btnDeadline {
-    min-width: 20%;
   }
 
   /*-----TODO LIST-----*/
