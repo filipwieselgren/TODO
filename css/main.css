@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-footer {
-  z-index: -1;
-}
-
 body {
   min-height: 100vh;
   background-image: linear-gradient(180deg, rgba(249, 198, 55, 0.4), rgba(250, 153, 67, 0.4));
@@ -182,20 +178,6 @@ body #containerTodo .mystyle {
   text-decoration: line-through;
   opacity: 0.5;
 }
-body #imgContainer {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  min-height: 62.5vh;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-body footer > img {
-  height: 30vh;
-  width: 100vw;
-  justify-self: flex-end;
-}
 body .sortContainer {
   width: 40vw !important;
   display: flex;
@@ -230,10 +212,6 @@ body .sortContainer .arrowUp {
 
   .addTodoContainer {
     width: 40vw !important;
-  }
-
-  footer > img {
-    width: 33vw !important;
   }
 
   .sortContainer {
