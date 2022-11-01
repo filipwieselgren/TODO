@@ -80,26 +80,27 @@ function addTodoBtn(event) {
 function createHtml(value) {
   const ul = document.getElementById("listTodo");
   ul.innerHTML = "";
-  const tomorrow = "Tomorrow at";
-  const noDeadline = "No deadline";
-
-  let todaysDate = new Date();
 
   for (let i = 0; i < newTodo.length; i++) {
     const todoLi = document.createElement("li");
     todoLi.classList.add("todoLi");
-    let todoSpan = document.createElement("div");
-    let todoDeadline = document.createElement("div");
-    let todoItemContainer = document.createElement("div");
+    const todoSpan = document.createElement("div");
+    const todoDeadline = document.createElement("div");
+    const todoItemContainer = document.createElement("div");
+    const todaysDate = new Date();
+    const inputD = new Date(newTodo[i].deadline);
+    const tomorrow = new Date(todaysDate);
 
-    let inputD = new Date(newTodo[i].deadline);
-    console.log(inputD);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
     todoSpan.innerText = newTodo[i].todoItem;
     todoDeadline.innerText =
       inputD.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
         ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]}`
         : inputD == "Invalid Date"
         ? "No deadline"
+        : inputD.setHours(0, 0, 0, 0) == tomorrow.setHours(0, 0, 0, 0)
+        ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]}`
         : `Deadline: ${newTodo[i].deadline} `;
     todoSpan.classList.add("todoSpan");
     todoDeadline.classList.add("todoDeadline");
@@ -108,7 +109,7 @@ function createHtml(value) {
     todoItemContainer.appendChild(todoSpan);
     todoItemContainer.appendChild(todoDeadline);
 
-    let btnDone = document.createElement("button");
+    const btnDone = document.createElement("button");
     btnDone.classList.add("btnDone");
     btnDone.innerHTML = "<i class='fas fa-check'></i>";
     btnDone.addEventListener("click", (e) => {
@@ -116,7 +117,7 @@ function createHtml(value) {
     });
     todoLi.appendChild(btnDone);
 
-    let btnTrash = document.createElement("button");
+    const btnTrash = document.createElement("button");
     btnTrash.classList.add("btnTrash");
     btnTrash.innerHTML = "<i class='far fa-trash-alt'></i>";
     btnTrash.addEventListener("click", (e) => {
