@@ -34,7 +34,7 @@ body .addTodoContainer {
   justify-content: center;
   align-items: flex-end;
   gap: 20px;
-  width: 40vw;
+  width: 80vw;
 }
 body .inputContainer {
   min-height: 10vh;
@@ -44,12 +44,13 @@ body .inputContainer {
   gap: 25px;
   margin-top: 20px;
   align-items: center;
+  z-index: 10;
 }
 body .inputContainer #inputTodo {
   border: none;
   background-color: transparent;
   border-bottom: 1px solid #5c5c5c;
-  width: 40%;
+  min-width: 50%;
   height: 3vh;
   font-size: 1rem;
   border-radius: 0;
@@ -61,6 +62,7 @@ body .inputContainer .dateContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 body .inputContainer .datePicker,
 body .inputContainer .deadlineTxt {
@@ -78,6 +80,10 @@ body .inputContainer input#date::-webkit-calendar-picker-indicator {
 }
 body .inputContainer .datePickerBtnContainer {
   display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  min-height: 10vh;
 }
 body .inputContainer .btnDeadline {
   border: 1px solid #5c5c5c;
@@ -88,6 +94,8 @@ body .inputContainer .btnDeadline {
   color: #5c5c5c;
   box-shadow: 3px 3px 1px 1px #494949;
   cursor: pointer;
+  width: 80%;
+  margin-bottom: 20px;
 }
 body .noTodo::placeholder {
   color: red !important;
@@ -112,6 +120,9 @@ body #addTodo {
 body #addTodo:hover,
 body .btnDeadline:hover {
   background-color: rgba(250, 153, 67, 0.2);
+}
+body #addTodo {
+  min-width: 20%;
 }
 body #containerTodo {
   display: flex;
@@ -181,6 +192,10 @@ body img {
 @media screen and (min-width: 500px) {
   .titleContainer {
     min-height: 20vh !important;
+  }
+
+  .addTodoContainer {
+    width: 40vw !important;
   }
 
   img {

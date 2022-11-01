@@ -58,6 +58,7 @@ function addTodoBtn(event) {
   let dateDeadline = inputDate.value;
   dateDeadline = dateDeadline.replace("T", " ");
   let todoItem = new Todo(inputTodo.value, dateDeadline);
+  inputDate.value = "";
 
   datePicker.classList.remove("datePickerShow");
   btnTxt = false;

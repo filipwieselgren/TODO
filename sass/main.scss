@@ -37,7 +37,7 @@ body {
     justify-content: center;
     align-items: flex-end;
     gap: 20px;
-    width: 40vw;
+    width: 80vw;
   }
 
   .inputContainer {
@@ -48,12 +48,13 @@ body {
     gap: 25px;
     margin-top: 20px;
     align-items: center;
+    z-index: 10;
 
     #inputTodo {
       border: none;
       background-color: transparent;
       border-bottom: 1px solid #5c5c5c;
-      width: 40%;
+      min-width: 50%;
       height: 3vh;
       font-size: 1rem;
       border-radius: 0;
@@ -67,6 +68,7 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100%;
     }
 
     .datePicker,
@@ -87,6 +89,10 @@ body {
     }
     .datePickerBtnContainer {
       display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      min-height: 10vh;
     }
     .btnDeadline {
       border: 1px solid #5c5c5c;
@@ -97,6 +103,8 @@ body {
       color: #5c5c5c;
       box-shadow: 3px 3px 1px 1px #494949;
       cursor: pointer;
+      width: 80%;
+      margin-bottom: 20px;
     }
   }
 
@@ -125,6 +133,10 @@ body {
   #addTodo:hover,
   .btnDeadline:hover {
     background-color: rgba(250, 153, 67, 0.2);
+  }
+
+  #addTodo {
+    min-width: 20%;
   }
 
   /*-----TODO LIST-----*/
@@ -209,6 +221,10 @@ body {
 @media screen and (min-width: 500px) {
   .titleContainer {
     min-height: 20vh !important;
+  }
+
+  .addTodoContainer {
+    width: 40vw !important;
   }
 
   img {
