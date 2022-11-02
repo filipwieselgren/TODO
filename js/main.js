@@ -34,7 +34,6 @@ flatpickr(inputDate, {
   enableTime: true,
   dateFormat: "Y-m-d H:i",
 });
-// inputDate.min = new Date().toISOString().split("T")[0];
 
 function start() {
   addTodo.addEventListener("click", addTodoBtn);
@@ -59,9 +58,9 @@ function setBtnTxt() {
 
 function addTodoBtn(event) {
   event.preventDefault();
-
+  console.log("inputDate:", inputDate.value);
   let dateDeadline = inputDate.value;
-  dateDeadline = dateDeadline.replace("T", " ");
+  // dateDeadline = dateDeadline.replace("T", " ");
   let todoItem = new Todo(inputTodo.value, dateDeadline);
 
   btnTxt = false;
@@ -99,18 +98,19 @@ function createHtml() {
     yesterday.setDate(yesterday.getDate() - 1);
 
     todoSpan.innerText = newTodo[i].todoItem;
-    todoDeadline.innerText =
-      inputD.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
-        ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]}`
-        : inputD == "Invalid Date"
-        ? "No deadline"
-        : inputD.setHours(0, 0, 0, 0) == tomorrow.setHours(0, 0, 0, 0)
-        ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]}`
-        : inputD.setHours(0, 0, 0, 0) == yesterday.setHours(0, 0, 0, 0)
-        ? `Deadline: Yesterday`
-        : inputD.setHours(0, 0, 0, 0) < yesterday.setHours(0, 0, 0, 0)
-        ? `Deadline: Was more than one day ago`
-        : `Deadline: ${newTodo[i].deadline} `;
+    todoDeadline.innerText = `Deadline: ${newTodo[i].deadline} `;
+    // todoDeadline.innerText =
+    //   inputD.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
+    //     ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]}`
+    //     : inputD == "Invalid Date"
+    //     ? "No deadline"
+    //     : inputD.setHours(0, 0, 0, 0) == tomorrow.setHours(0, 0, 0, 0)
+    //     ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]}`
+    //     : inputD.setHours(0, 0, 0, 0) == yesterday.setHours(0, 0, 0, 0)
+    //     ? `Deadline: Yesterday`
+    //     : inputD.setHours(0, 0, 0, 0) < yesterday.setHours(0, 0, 0, 0)
+    //     ? `Deadline: Was more than one day ago`
+    //     : `Deadline: ${newTodo[i].deadline} `;
     todoSpan.classList.add("todoSpan");
     todoDeadline.classList.add("todoDeadline");
     todoItemContainer.classList.add("todoItemContainer");
