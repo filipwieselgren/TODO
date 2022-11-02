@@ -102,8 +102,7 @@ function createHtml() {
 
     // todoDeadline.innerText = `Deadline: ${newTodo[i].deadline} `;
     todoDeadline.innerText =
-      Date.parse(inputD.setHours(0, 0, 0, 0)) ==
-      Date.parse(todaysDate.setHours(0, 0, 0, 0))
+      inputD.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
         ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]}`
         : inputD == "Invalid Date"
         ? "No deadline"
