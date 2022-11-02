@@ -12,8 +12,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
 
     <link rel="stylesheet" href="/css/main.css" />
+
     <title>MY TODO</title>
   </head>
   <body>
@@ -28,13 +33,16 @@
           placeholder="Write todos here..."
           required
         />
-        <button class="btnDeadline">Set a deadline</button>
       </div>
       <div class="dateContainer">
         <div class="datePickerBtnContainer">
+          <input
+            class="btnDeadline"
+            type="datetime-local"
+            id="date"
+            placeholder="Set a deadline"
+          />
           <button id="addTodo" type="submit">Add todo</button>
-
-          <input class="datePicker" type="datetime-local" id="date" />
         </div>
       </div>
     </form>
@@ -56,10 +64,12 @@
         />
       </div>
     </div>
+
     <div id="containerTodo">
       <ul id="listTodo"></ul>
     </div>
 
-    <script src="/js/main.js"></script>
+    <script type="module" src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </body>
 </html>

@@ -55,7 +55,7 @@ body {
       border: none;
       background-color: transparent;
       border-bottom: 1px solid #5c5c5c;
-      min-width: 45%;
+      width: 80%;
       height: 3vh;
       font-size: 1rem;
       border-radius: 0;
@@ -81,9 +81,9 @@ body {
       display: block;
     }
 
-    // #date {
-    //   background-color: transparent;
-    // }
+    #date {
+      background-color: transparent;
+    }
 
     .datePickerBtnContainer {
       display: flex;
@@ -101,8 +101,9 @@ body {
       padding: 0 5px 0 5px;
       color: #5c5c5c;
       box-shadow: 3px 3px 1px 1px #494949;
-      min-width: 30%;
-      max-width: 30%;
+      width: 80%;
+      text-align: center;
+      margin-bottom: 10px;
     }
   }
 

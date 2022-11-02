@@ -14,7 +14,7 @@ const inputTodo = document.getElementById("inputTodo");
 const inputDate = document.getElementById("date");
 const listTodo = document.getElementById("listTodo");
 const setDeadLine = document.querySelector(".btnDeadline");
-const datePicker = document.querySelector(".datePicker");
+
 const dateID = document.getElementById("date");
 const arrowUp = document.querySelector(".arrowUpContainer");
 const arrowDown = document.querySelector(".arrowDownContainer");
@@ -30,6 +30,10 @@ if (localStorage.getItem("newTodo") != null) {
 } else {
 }
 
+flatpickr(inputDate, {
+  enableTime: true,
+  dateFormat: "Y-m-d H:i",
+});
 // inputDate.min = new Date().toISOString().split("T")[0];
 
 function start() {
@@ -39,7 +43,6 @@ function start() {
 
 setDeadLine.addEventListener("click", (event) => {
   event.preventDefault();
-  datePicker.classList.toggle("datePickerShow");
 
   btnTxt = !btnTxt;
 
@@ -61,7 +64,6 @@ function addTodoBtn(event) {
   dateDeadline = dateDeadline.replace("T", " ");
   let todoItem = new Todo(inputTodo.value, dateDeadline);
 
-  datePicker.classList.remove("datePickerShow");
   btnTxt = false;
   setBtnTxt();
 
