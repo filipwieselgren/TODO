@@ -17,7 +17,6 @@ const setDeadLine = document.querySelector(".btnDeadline");
 const datePicker = document.querySelector(".datePicker");
 const arrowUp = document.querySelector(".arrowUpContainer");
 const arrowDown = document.querySelector(".arrowDownContainer");
-const sortContainer = document.querySelector(".sortContainer");
 
 window.onload = function () {
   start();
@@ -80,16 +79,6 @@ function addTodoBtn(event) {
 function createHtml() {
   const ul = document.getElementById("listTodo");
   ul.innerHTML = "";
-
-  let deadline = newTodo.filter((n) => n.deadline !== "");
-
-  console.log("deadline:", deadline);
-
-  if (newTodo.length > 0 && deadline.length >= 2) {
-    sortContainer.classList.add("showSort");
-  } else {
-    sortContainer.classList.remove("showSort");
-  }
 
   for (let i = 0; i < newTodo.length; i++) {
     const todoLi = document.createElement("li");

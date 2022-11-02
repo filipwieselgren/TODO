@@ -198,7 +198,13 @@ body {
   /*-----IMAGE-----*/
 
   .sortContainer {
-    display: none;
+    width: 40vw !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 10px 0;
+    min-height: 4vh;
+    max-height: 5vh;
 
     .sortTxt {
       text-transform: uppercase;
@@ -219,14 +225,6 @@ body {
     .arrowUp {
       transform: rotate(90deg);
     }
-  }
-
-  .showSort {
-    width: 40vw !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0 10px 0;
   }
 }
 

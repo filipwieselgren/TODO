@@ -171,7 +171,13 @@ body #containerTodo .mystyle {
   opacity: 0.5;
 }
 body .sortContainer {
-  display: none;
+  width: 40vw !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 10px 0;
+  min-height: 4vh;
+  max-height: 5vh;
 }
 body .sortContainer .sortTxt {
   text-transform: uppercase;
@@ -190,13 +196,6 @@ body .sortContainer .arrowDown {
 }
 body .sortContainer .arrowUp {
   transform: rotate(90deg);
-}
-body .showSort {
-  width: 40vw !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0 10px 0;
 }
 
 /*-----MEDIA QUERIES-----*/
