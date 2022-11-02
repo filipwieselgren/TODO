@@ -17,6 +17,7 @@ const setDeadLine = document.querySelector(".btnDeadline");
 const datePicker = document.querySelector(".datePicker");
 const arrowUp = document.querySelector(".arrowUpContainer");
 const arrowDown = document.querySelector(".arrowDownContainer");
+const sortContainer = document.querySelector(".sortContainer");
 
 window.onload = function () {
   start();
@@ -79,6 +80,16 @@ function addTodoBtn(event) {
 function createHtml() {
   const ul = document.getElementById("listTodo");
   ul.innerHTML = "";
+
+  let deadline = newTodo.filter((n) => n.deadline !== "");
+
+  console.log("deadline:", deadline);
+
+  if (newTodo.length > 0 && deadline.length >= 2) {
+    sortContainer.classList.add("showSort");
+  } else {
+    sortContainer.classList.remove("showSort");
+  }
 
   for (let i = 0; i < newTodo.length; i++) {
     const todoLi = document.createElement("li");
@@ -165,17 +176,32 @@ function done(e, i) {
 }
 
 arrowUp.addEventListener("click", () => {
-  console.log("klick");
+  let noDeadline = newTodo.filter((n) => {
+    return n.deadline === "";
+  });
+  let deadline = newTodo.filter((n) => {
+    return n.deadline !== "";
+  });
+
+  newTodo = deadline.concat(noDeadline);
+
   let sortted = newTodo.sort((a, b) => {
     return Date.parse(a.deadline) - Date.parse(b.deadline);
   });
-
-  console.log(sortted);
 
   createHtml();
 });
 
 arrowDown.addEventListener("click", () => {
+  let noDeadline = newTodo.filter((n) => {
+    return n.deadline === "";
+  });
+  let deadline = newTodo.filter((n) => {
+    return n.deadline !== "";
+  });
+
+  newTodo = deadline.concat(noDeadline);
+
   console.log("klick");
   let sortted = newTodo.sort((a, b) => {
     return Date.parse(b.deadline) - Date.parse(a.deadline);

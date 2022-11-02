@@ -50,7 +50,7 @@ body .inputContainer #inputTodo {
   border: none;
   background-color: transparent;
   border-bottom: 1px solid #5c5c5c;
-  min-width: 50%;
+  min-width: 45%;
   height: 3vh;
   font-size: 1rem;
   border-radius: 0;
@@ -87,11 +87,12 @@ body .inputContainer .btnDeadline {
   background-color: transparent;
   border-radius: 5px;
   text-transform: uppercase;
-  padding: 10px;
+  height: 40px;
+  padding: 0 5px 0 5px;
   color: #5c5c5c;
   box-shadow: 3px 3px 1px 1px #494949;
-  min-width: 25%;
-  max-width: 25%;
+  min-width: 30%;
+  max-width: 30%;
 }
 body .noTodo::placeholder {
   color: red !important;
@@ -108,7 +109,8 @@ body #addTodo {
   background-color: transparent;
   border-radius: 5px;
   text-transform: uppercase;
-  padding: 10px;
+  height: 40px;
+  padding: 0 5px 0 5px;
   color: #5c5c5c;
   box-shadow: 3px 3px 1px 1px #494949;
   width: 80%;
@@ -169,11 +171,7 @@ body #containerTodo .mystyle {
   opacity: 0.5;
 }
 body .sortContainer {
-  width: 40vw !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0 10px 0;
+  display: none;
 }
 body .sortContainer .sortTxt {
   text-transform: uppercase;
@@ -192,6 +190,13 @@ body .sortContainer .arrowDown {
 }
 body .sortContainer .arrowUp {
   transform: rotate(90deg);
+}
+body .showSort {
+  width: 40vw !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 10px 0;
 }
 
 /*-----MEDIA QUERIES-----*/
