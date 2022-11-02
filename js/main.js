@@ -15,6 +15,7 @@ const inputDate = document.getElementById("date");
 const listTodo = document.getElementById("listTodo");
 const setDeadLine = document.querySelector(".btnDeadline");
 const datePicker = document.querySelector(".datePicker");
+const dateID = document.getElementById("date");
 const arrowUp = document.querySelector(".arrowUpContainer");
 const arrowDown = document.querySelector(".arrowDownContainer");
 
@@ -39,6 +40,7 @@ function start() {
 setDeadLine.addEventListener("click", (event) => {
   event.preventDefault();
   datePicker.classList.toggle("datePickerShow");
+
   btnTxt = !btnTxt;
 
   setBtnTxt();
