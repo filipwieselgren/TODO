@@ -178,6 +178,7 @@ body .sortContainer {
   margin: 10px 0 10px 0;
   min-height: 4vh;
   max-height: 5vh;
+  margin-top: 40px;
 }
 body .sortContainer .sortTxt {
   text-transform: uppercase;
