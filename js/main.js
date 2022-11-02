@@ -100,19 +100,20 @@ function createHtml() {
 
     todoSpan.innerText = newTodo[i].todoItem;
 
-    todoDeadline.innerText = `Deadline: ${newTodo[i].deadline} `;
-    // todoDeadline.innerText =
-    //   inputD.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
-    //     ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]}`
-    //     : inputD == "Invalid Date"
-    //     ? "No deadline"
-    //     : inputD.setHours(0, 0, 0, 0) == tomorrow.setHours(0, 0, 0, 0)
-    //     ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]}`
-    //     : inputD.setHours(0, 0, 0, 0) == yesterday.setHours(0, 0, 0, 0)
-    //     ? `Deadline: Yesterday`
-    //     : inputD.setHours(0, 0, 0, 0) < yesterday.setHours(0, 0, 0, 0)
-    //     ? `Deadline: Was more than one day ago`
-    //     : `Deadline: ${newTodo[i].deadline} `;
+    // todoDeadline.innerText = `Deadline: ${newTodo[i].deadline} `;
+    todoDeadline.innerText =
+      Date.parse(inputD.setHours(0, 0, 0, 0)) ==
+      Date.parse(todaysDate.setHours(0, 0, 0, 0))
+        ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]}`
+        : inputD == "Invalid Date"
+        ? "No deadline"
+        : inputD.setHours(0, 0, 0, 0) == tomorrow.setHours(0, 0, 0, 0)
+        ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]}`
+        : inputD.setHours(0, 0, 0, 0) == yesterday.setHours(0, 0, 0, 0)
+        ? `Deadline: Yesterday`
+        : inputD.setHours(0, 0, 0, 0) < yesterday.setHours(0, 0, 0, 0)
+        ? `Deadline: Was more than one day ago`
+        : `Deadline: ${newTodo[i].deadline} `;
     todoSpan.classList.add("todoSpan");
     todoDeadline.classList.add("todoDeadline");
     todoItemContainer.classList.add("todoItemContainer");
@@ -180,7 +181,7 @@ arrowUp.addEventListener("click", () => {
 
   newTodo = deadline.concat(noDeadline);
 
-  let sortted = newTodo.sort((a, b) => {
+  newTodo.sort((a, b) => {
     return Date.parse(a.deadline) - Date.parse(b.deadline);
   });
 
@@ -197,12 +198,9 @@ arrowDown.addEventListener("click", () => {
 
   newTodo = deadline.concat(noDeadline);
 
-  console.log("klick");
-  let sortted = newTodo.sort((a, b) => {
+  newTodo.sort((a, b) => {
     return Date.parse(b.deadline) - Date.parse(a.deadline);
   });
-
-  console.log(sortted);
 
   createHtml();
 });
