@@ -29,7 +29,7 @@ if (localStorage.getItem("newTodo") != null) {
 } else {
 }
 
-inputDate.min = new Date().toISOString().split("T")[0];
+// inputDate.min = new Date().toISOString().split("T")[0];
 
 function start() {
   addTodo.addEventListener("click", addTodoBtn);
