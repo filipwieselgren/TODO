@@ -34,7 +34,6 @@ setDeadLine.placeholder = "Set a deadline";
 flatpickr(inputDate, {
   enableTime: true,
   dateFormat: "Y-m-d H:i",
-  disableMobile: "true",
 });
 
 function start() {

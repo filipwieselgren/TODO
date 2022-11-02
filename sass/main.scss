@@ -234,7 +234,6 @@ body {
 
 @media screen and (min-width: 500px) {
   #addTodo:hover,
-  .btnDeadline:hover,
   .arrowContainer:hover,
   .btnDone:hover,
   .btnTrash:hover {
@@ -242,9 +241,11 @@ body {
     cursor: pointer;
   }
 
-  input#date::-webkit-calendar-picker-indicator {
+  .btnDeadline:hover {
+    background-color: rgba(250, 153, 67, 0.2);
     cursor: pointer;
   }
+
   .titleContainer {
     min-height: 20vh !important;
   }
