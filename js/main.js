@@ -98,6 +98,9 @@ function createHtml() {
     tomorrow.setDate(tomorrow.getDate() + 1);
     yesterday.setDate(yesterday.getDate() - 1);
 
+    console.log("inputD:", inputD);
+    console.log("todaysDate:", todaysDate);
+
     todoSpan.innerText = newTodo[i].todoItem;
 
     todoDeadline.innerText =
