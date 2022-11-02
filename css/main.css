@@ -84,6 +84,7 @@ body .inputContainer .datePickerBtnContainer {
 }
 body .inputContainer .btnDeadline {
   border: 1px solid #5c5c5c;
+  background-color: transparent;
   border-radius: 5px;
   text-transform: uppercase;
   height: 40px;
