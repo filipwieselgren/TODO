@@ -223,7 +223,7 @@ body .sortContainer .arrowUp {
   }
 
   #listTodo {
-    width: 50vw;
+    width: 40vw !important;
   }
 }
 
