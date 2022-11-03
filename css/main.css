@@ -199,6 +199,17 @@ body .sortContainer .arrowDown {
 body .sortContainer .arrowUp {
   transform: rotate(90deg);
 }
+body .inputTxtContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+body .inputTxtContainer span {
+  position: absolute;
+  top: 15%;
+}
 
 /*-----MEDIA QUERIES-----*/
 @media screen and (min-width: 500px) {
