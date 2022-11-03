@@ -100,19 +100,19 @@ function createHtml() {
 
     todoSpan.innerText = newTodo[i].todoItem;
 
-    todoDeadline.innerText = `Deadline: ${newTodo[i].deadline} `;
-    // todoDeadline.innerText =
-    //   inputD.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
-    //     ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]}`
-    //     : inputD == "Invalid Date"
-    //     ? "No deadline"
-    //     : inputD.setHours(0, 0, 0, 0) == tomorrow.setHours(0, 0, 0, 0)
-    //     ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]}`
-    //     : inputD.setHours(0, 0, 0, 0) == yesterday.setHours(0, 0, 0, 0)
-    //     ? `Deadline: Yesterday`
-    //     : inputD.setHours(0, 0, 0, 0) < yesterday.setHours(0, 0, 0, 0)
-    //     ? `Deadline: Was more than one day ago`
-    //     : `Deadline: ${newTodo[i].deadline} `;
+    // todoDeadline.innerText = `Deadline: ${newTodo[i].deadline} `;
+    todoDeadline.innerText =
+      inputD.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
+        ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]}`
+        : inputD == "Invalid Date"
+        ? "No deadline"
+        : inputD.setHours(0, 0, 0, 0) == tomorrow.setHours(0, 0, 0, 0)
+        ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]}`
+        : inputD.setHours(0, 0, 0, 0) == yesterday.setHours(0, 0, 0, 0)
+        ? `Deadline: Yesterday`
+        : inputD.setHours(0, 0, 0, 0) < yesterday.setHours(0, 0, 0, 0)
+        ? `Deadline: Was more than one day ago`
+        : `Deadline: ${newTodo[i].deadline} `;
     todoSpan.classList.add("todoSpan");
     todoDeadline.classList.add("todoDeadline");
     todoItemContainer.classList.add("todoItemContainer");
@@ -170,7 +170,7 @@ function done(e, i) {
   localStorage.setItem("newTodo", JSON.stringify(todos));
 }
 
-arrowUp.addEventListener("click", () => {
+function sortNoDeadline() {
   let noDeadline = newTodo.filter((n) => {
     return n.deadline === "";
   });
@@ -178,8 +178,11 @@ arrowUp.addEventListener("click", () => {
     return n.deadline !== "";
   });
 
-  newTodo = deadline.concat(noDeadline);
+  return (newTodo = deadline.concat(noDeadline));
+}
 
+arrowUp.addEventListener("click", () => {
+  newTodo = sortNoDeadline();
   newTodo.sort((a, b) => {
     return Date.parse(a.deadline) - Date.parse(b.deadline);
   });
@@ -188,14 +191,7 @@ arrowUp.addEventListener("click", () => {
 });
 
 arrowDown.addEventListener("click", () => {
-  let noDeadline = newTodo.filter((n) => {
-    return n.deadline === "";
-  });
-  let deadline = newTodo.filter((n) => {
-    return n.deadline !== "";
-  });
-
-  newTodo = deadline.concat(noDeadline);
+  newTodo = sortNoDeadline();
 
   newTodo.sort((a, b) => {
     return Date.parse(b.deadline) - Date.parse(a.deadline);
