@@ -139,7 +139,7 @@ body {
     margin-bottom: 20px;
     #listTodo {
       list-style: none;
-      width: 50vw;
+      width: 80vw;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -251,5 +251,9 @@ body {
 
   .addTodoContainer {
     width: 40vw !important;
+  }
+
+  #listTodo {
+    width: 50vw;
   }
 }
