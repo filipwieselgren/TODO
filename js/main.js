@@ -36,10 +36,6 @@ flatpickr(inputDate, {
   enableTime: true,
   dateFormat: "Y-m-d H:i",
 });
-flatpickr(spanDate, {
-  enableTime: true,
-  dateFormat: "Y-m-d H:i",
-});
 
 function start() {
   addTodo.addEventListener("click", addTodoBtn);
