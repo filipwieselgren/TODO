@@ -12,6 +12,7 @@ let date = new Date();
 const addTodo = document.getElementById("addTodo");
 const inputTodo = document.getElementById("inputTodo");
 const inputDate = document.getElementById("date");
+const spanDate = document.getElementById("spanDate");
 const listTodo = document.getElementById("listTodo");
 const setDeadLine = document.querySelector(".btnDeadline");
 
@@ -32,6 +33,10 @@ if (localStorage.getItem("newTodo") != null) {
 
 // setDeadLine.placeholder = "Set a deadline";
 flatpickr(inputDate, {
+  enableTime: true,
+  dateFormat: "Y-m-d H:i",
+});
+flatpickr(spanDate, {
   enableTime: true,
   dateFormat: "Y-m-d H:i",
 });
