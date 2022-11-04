@@ -35,6 +35,7 @@ if (localStorage.getItem("newTodo") != null) {
 flatpickr(inputDate, {
   enableTime: true,
   dateFormat: "Y-m-d H:i",
+  disableMobile: "true",
 });
 
 function start() {
