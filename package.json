@@ -9,6 +9,8 @@
   "author": "Filip Wieselgren",
   "license": "ISC",
   "dependencies": {
-    "flatpickr": "^4.6.13"
+    "flatpickr": "^4.6.13",
+    "jquery-datetimepicker": "^2.5.21",
+    "simplepicker": "^2.0.4"
   }
 }
