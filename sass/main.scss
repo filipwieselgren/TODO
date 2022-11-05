@@ -255,10 +255,10 @@ body {
   margin-bottom: 10px;
 }
 
-.ui-datepicker {
+.ui-datepicker .ui-widget .ui-widget-content .ui-helper-clearfix ui-corner-all {
   position: absolute;
   top: 50%;
-  // left: 50%;
+  left: 50%;
   z-index: 1;
 }
 
