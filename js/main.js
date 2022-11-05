@@ -46,6 +46,12 @@ jQuery(function ($) {
   $("#datepicker").datetimepicker();
 });
 
+$("#slider_example_4andHalf").datetimepicker({
+  controlType: "select",
+  oneLine: true,
+  timeFormat: "hh:mm tt",
+});
+
 $(document).bind("mobileinit", function (event) {
   $.extend($.mobile.zoom, { locked: false, enabled: true });
 });

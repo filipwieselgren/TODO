@@ -228,8 +228,6 @@ body .sortContainer .arrowUp {
 .ui-datepicker {
   position: absolute;
   top: 50%;
-  left: 50%;
-  left: 5;
   z-index: 1;
 }
 
