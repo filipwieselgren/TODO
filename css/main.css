@@ -200,9 +200,6 @@ body .sortContainer .arrowUp {
 }
 
 #ui-datepicker-div {
-  position: absolute;
-  top: 50%;
-  transform: translate(0%, -50%);
   z-index: 1;
   display: block;
 }
