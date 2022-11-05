@@ -116,23 +116,18 @@ function createHtml() {
     const dead = newTodo.map((n) => n.deadline);
 
     const splitDead = dead.toString().split(" ");
+    const amOrPM = splitDead.find((s) => s === "pm") ? "pm" : "am";
     // todoDeadline.innerText = `Deadline: ${newTodo[i].deadline} `;
     todoDeadline.innerText =
       inputD.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
-        ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]} ${
-            splitDead.find((s) => s === "pm") ? "pm" : "am"
-          }`
+        ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]} ${amOrPM}`
         : inputD == "Invalid Date"
         ? "No deadline"
         : inputD.setHours(0, 0, 0, 0) == tomorrow.setHours(0, 0, 0, 0)
-        ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]} ${
-            splitDead.find((s) => s === "pm") ? "pm" : "am"
-          }`
+        ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]} ${amOrPM}`
         : inputD.setHours(0, 0, 0, 0) <= yesterday.setHours(0, 0, 0, 0)
         ? `Deadline: The deadline has passed`
-        : `Deadline: ${newTodo[i].deadline} ${
-            splitDead.find((s) => s === "pm") ? "pm" : "am"
-          }`;
+        : `Deadline: ${newTodo[i].deadline} ${amOrPM}`;
     todoSpan.classList.add("todoSpan");
     todoDeadline.classList.add("todoDeadline");
     todoItemContainer.classList.add("todoItemContainer");
