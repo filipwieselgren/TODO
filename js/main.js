@@ -113,10 +113,15 @@ function createHtml() {
 
     todoSpan.innerText = newTodo[i].todoItem;
 
+    const dead = newTodo.map((n) => n.deadline);
+
+    const splitDead = dead.toString().split(" ");
     // todoDeadline.innerText = `Deadline: ${newTodo[i].deadline} `;
     todoDeadline.innerText =
       inputD.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
-        ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]}`
+        ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]} ${
+            splitDead.find((s) => s === "pm") ? "pm" : "am"
+          }`
         : inputD == "Invalid Date"
         ? "No deadline"
         : inputD.setHours(0, 0, 0, 0) == tomorrow.setHours(0, 0, 0, 0)
