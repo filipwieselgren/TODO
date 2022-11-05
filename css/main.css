@@ -225,6 +225,14 @@ body .sortContainer .arrowUp {
   margin-bottom: 10px;
 }
 
+.ui-datepicker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  left: 5;
+  z-index: 1;
+}
+
 /*-----MEDIA QUERIES-----*/
 @media screen and (min-width: 500px) {
   #addTodo:hover,
