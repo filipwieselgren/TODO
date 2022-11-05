@@ -232,8 +232,7 @@ body {
 #ui-datepicker-div {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
   z-index: 1;
   display: block;
   &:focus-visible {
@@ -255,16 +254,8 @@ body {
   margin-bottom: 10px;
 }
 
-.ui-datepicker .ui-widget .ui-widget-content .ui-helper-clearfix ui-corner-all {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 1;
-}
-
 div[style="left"] {
-  left: 100%;
-  top: 50%;
+  right: 70px;
 }
 
 /*-----MEDIA QUERIES-----*/
