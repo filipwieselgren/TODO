@@ -201,8 +201,8 @@ body .sortContainer .arrowUp {
 
 #ui-datepicker-div {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 0;
+  left: 0;
   transform: translate(-50%, -50%);
   z-index: 1;
   display: block;
@@ -225,9 +225,10 @@ body .sortContainer .arrowUp {
   margin-bottom: 10px;
 }
 
-.ui-datepicker {
+.ui-datepicker .ui-widget .ui-widget-content .ui-helper-clearfix ui-corner-all {
   position: absolute;
-  top: 50%;
+  top: 0;
+  left: 0;
   z-index: 1;
 }
 
