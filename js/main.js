@@ -125,10 +125,14 @@ function createHtml() {
         : inputD == "Invalid Date"
         ? "No deadline"
         : inputD.setHours(0, 0, 0, 0) == tomorrow.setHours(0, 0, 0, 0)
-        ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]}`
+        ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]} ${
+            splitDead.find((s) => s === "pm") ? "pm" : "am"
+          }`
         : inputD.setHours(0, 0, 0, 0) <= yesterday.setHours(0, 0, 0, 0)
         ? `Deadline: The deadline has passed`
-        : `Deadline: ${newTodo[i].deadline} `;
+        : `Deadline: ${newTodo[i].deadline} ${
+            splitDead.find((s) => s === "pm") ? "pm" : "am"
+          }`;
     todoSpan.classList.add("todoSpan");
     todoDeadline.classList.add("todoDeadline");
     todoItemContainer.classList.add("todoItemContainer");
