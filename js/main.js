@@ -128,7 +128,7 @@ function createHtml() {
         ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]} ${amOrPM}`
         : inputD.setHours(0, 0, 0, 0) <= yesterday.setHours(0, 0, 0, 0)
         ? `Deadline: The deadline has passed`
-        : `Deadline: ${newTodo[i].deadline} ${pm}`;
+        : `Deadline: ${newTodo[i].deadline}`;
     todoSpan.classList.add("todoSpan");
     todoDeadline.classList.add("todoDeadline");
     todoItemContainer.classList.add("todoItemContainer");
