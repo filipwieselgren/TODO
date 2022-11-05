@@ -202,6 +202,9 @@ body .sortContainer .arrowUp {
 #ui-datepicker-div {
   z-index: 10;
 }
+#ui-datepicker-div:focus-visible {
+  outline: 0;
+}
 
 /*-----MEDIA QUERIES-----*/
 @media screen and (min-width: 500px) {
