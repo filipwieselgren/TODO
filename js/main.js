@@ -46,21 +46,25 @@ jQuery(function ($) {
   $("#datepicker").datetimepicker();
 });
 
-setDeadLine.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  btnTxt = !btnTxt;
-
-  setBtnTxt();
+$(document).bind("mobileinit", function (event) {
+  $.extend($.mobile.zoom, { locked: false, enabled: true });
 });
 
-function setBtnTxt() {
-  if (btnTxt === false) {
-    setDeadLine.innerHTML = "Set deadline ";
-  } else {
-    setDeadLine.innerHTML = "Close";
-  }
-}
+// setDeadLine.addEventListener("click", (event) => {
+//   event.preventDefault();
+
+//   btnTxt = !btnTxt;
+
+//   setBtnTxt();
+// });
+
+// function setBtnTxt() {
+//   if (btnTxt === false) {
+//     setDeadLine.innerHTML = "Set deadline ";
+//   } else {
+//     setDeadLine.innerHTML = "Close";
+//   }
+// }
 
 function addTodoBtn(event) {
   event.preventDefault();
@@ -70,7 +74,7 @@ function addTodoBtn(event) {
   let todoItem = new Todo(inputTodo.value, dateDeadline);
 
   btnTxt = false;
-  setBtnTxt();
+  // setBtnTxt();
 
   if (todoItem.todoItem === "") {
     document.getElementById("inputTodo").classList.add("noTodo");
