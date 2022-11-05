@@ -32,10 +32,10 @@ if (localStorage.getItem("newTodo") != null) {
 }
 
 //setDeadLine.placeholder = "Set a deadline";
-flatpickr(inputDate, {
-  enableTime: true,
-  dateFormat: "Y-m-d H:i",
-});
+// flatpickr(inputDate, {
+//   enableTime: true,
+//   dateFormat: "Y-m-d H:i",
+// });
 
 function start() {
   addTodo.addEventListener("click", addTodoBtn);
