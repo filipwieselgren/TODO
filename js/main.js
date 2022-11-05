@@ -11,7 +11,7 @@ let btnTxt = false;
 let date = new Date();
 const addTodo = document.getElementById("addTodo");
 const inputTodo = document.getElementById("inputTodo");
-const inputDate = document.getElementById("date");
+const inputDate = document.getElementById("datepicker");
 const spanDate = document.getElementById("spanDate");
 const listTodo = document.getElementById("listTodo");
 const setDeadLine = document.querySelector(".btnDeadline");
@@ -41,6 +41,16 @@ function start() {
   addTodo.addEventListener("click", addTodoBtn);
   createHtml();
 }
+
+$(function () {
+  $("#addTodo").click(function (event) {
+    console.log("Lagt till");
+  });
+});
+
+jQuery(function ($) {
+  $("#datepicker").datetimepicker();
+});
 
 setDeadLine.addEventListener("click", (event) => {
   event.preventDefault();

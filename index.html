@@ -16,6 +16,15 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
+    <link type="MIME" rel="stylesheet" href="jquery.datetimepicker.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css"
+    />
 
     <link rel="stylesheet" href="/css/main.css" />
 
@@ -37,7 +46,7 @@
       <div class="dateContainer">
         <div class="datePickerBtnContainer">
           <span id="spanDate">Click on this box to set a deadline</span>
-          <input class="btnDeadline" type="type" id="date" />
+          <input class="btnDeadline" type="datetime-local" id="date" />
 
           <button id="addTodo" type="submit">Add todo</button>
         </div>
@@ -63,11 +72,22 @@
       </div>
     </div>
 
+    <input type="text" id="datepicker" placeholder="Choose Date and Time" />
+
     <div id="containerTodo">
       <ul id="listTodo"></ul>
     </div>
 
-    <script type="module" src="/js/main.js"></script>
+    <script type="text/javascript" src="js/jquery-3.6.1.js"></script>
+    <script type="MIME" src="/path/to/cdn/jquery.min.js"></script>
+    <script type="MIME" src="jquery.datetimepicker.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script type="module" src="/js/main.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
+    <script></script>
   </body>
 </html>
