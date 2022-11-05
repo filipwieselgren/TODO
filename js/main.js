@@ -117,6 +117,7 @@ function createHtml() {
 
     const splitDead = dead.toString().split(" ");
     const amOrPM = splitDead.find((s) => s === "pm") ? "pm" : "am";
+    const pm = splitDead.find((s) => s === "pm") ? "pm" : "";
     // todoDeadline.innerText = `Deadline: ${newTodo[i].deadline} `;
     todoDeadline.innerText =
       inputD.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
@@ -127,7 +128,7 @@ function createHtml() {
         ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]} ${amOrPM}`
         : inputD.setHours(0, 0, 0, 0) <= yesterday.setHours(0, 0, 0, 0)
         ? `Deadline: The deadline has passed`
-        : `Deadline: ${newTodo[i].deadline} ${amOrPM}`;
+        : `Deadline: ${newTodo[i].deadline} ${pm}`;
     todoSpan.classList.add("todoSpan");
     todoDeadline.classList.add("todoDeadline");
     todoItemContainer.classList.add("todoItemContainer");
