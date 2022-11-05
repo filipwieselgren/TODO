@@ -42,12 +42,6 @@ function start() {
   createHtml();
 }
 
-$(function () {
-  $("#addTodo").click(function (event) {
-    console.log("Lagt till");
-  });
-});
-
 jQuery(function ($) {
   $("#datepicker").datetimepicker();
 });

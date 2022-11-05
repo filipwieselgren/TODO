@@ -229,6 +229,10 @@ body {
   }
 }
 
+#datepicker {
+  z-index: 10;
+}
+
 /*-----MEDIA QUERIES-----*/
 
 @media screen and (min-width: 500px) {
