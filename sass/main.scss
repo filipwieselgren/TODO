@@ -231,6 +231,9 @@ body {
 
 #ui-datepicker-div {
   z-index: 10;
+  &:focus-visible {
+    outline: 0;
+  }
 }
 
 /*-----MEDIA QUERIES-----*/
