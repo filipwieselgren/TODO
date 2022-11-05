@@ -31,6 +31,8 @@ if (localStorage.getItem("newTodo") != null) {
 } else {
 }
 
+console.log("dateID:", dateID.value);
+
 //setDeadLine.placeholder = "Set a deadline";
 flatpickr(inputDate, {
   enableTime: true,
@@ -42,21 +44,21 @@ function start() {
   createHtml();
 }
 
-setDeadLine.addEventListener("click", (event) => {
-  event.preventDefault();
+// setDeadLine.addEventListener("click", (event) => {
+//   event.preventDefault();
 
-  btnTxt = !btnTxt;
+//   btnTxt = !btnTxt;
 
-  setBtnTxt();
-});
+//   setBtnTxt();
+// });
 
-function setBtnTxt() {
-  if (btnTxt === false) {
-    setDeadLine.innerHTML = "Set deadline ";
-  } else {
-    setDeadLine.innerHTML = "Close";
-  }
-}
+// function setBtnTxt() {
+//   if (btnTxt === false) {
+//     setDeadLine.innerHTML = "Set deadline ";
+//   } else {
+//     setDeadLine.innerHTML = "Close";
+//   }
+// }
 
 function addTodoBtn(event) {
   event.preventDefault();
@@ -66,7 +68,7 @@ function addTodoBtn(event) {
   let todoItem = new Todo(inputTodo.value, dateDeadline);
 
   btnTxt = false;
-  setBtnTxt();
+  // setBtnTxt();
 
   if (todoItem.todoItem === "") {
     document.getElementById("inputTodo").classList.add("noTodo");
