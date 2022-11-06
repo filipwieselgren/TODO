@@ -252,6 +252,17 @@ body {
   margin-bottom: 10px;
 }
 
+.ui-widget.ui-widget-content {
+  border: 1px solid #c5c5c500;
+}
+
+.ui-widget-content {
+  border: 1px solid #ddd;
+  background: #feddb6;
+  color: #333;
+  border-radius: px;
+}
+
 div[style="left"] {
   right: 70px;
 }

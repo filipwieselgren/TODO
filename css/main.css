@@ -200,8 +200,9 @@ body .sortContainer .arrowUp {
 }
 
 #ui-datepicker-div {
-  z-index: 1;
-  display: block;
+  z-index: 2;
+  display: none !important;
+  background-color: white;
 }
 #ui-datepicker-div:focus-visible {
   outline: 0;
@@ -219,6 +220,17 @@ body .sortContainer .arrowUp {
   width: 80%;
   text-align: center;
   margin-bottom: 10px;
+}
+
+.ui-widget.ui-widget-content {
+  border: 1px solid #c5c5c500;
+}
+
+.ui-widget-content {
+  border: 1px solid #ddd;
+  background: #feddb6;
+  color: #333;
+  border-radius: px;
 }
 
 div[style=left] {
