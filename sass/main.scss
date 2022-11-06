@@ -231,8 +231,6 @@ body {
 
 #ui-datepicker-div {
   z-index: 2;
-  display: none !important;
-  background-color: white;
   &:focus-visible {
     outline: 0;
   }
