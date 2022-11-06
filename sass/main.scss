@@ -230,7 +230,7 @@ body {
 }
 
 #ui-datepicker-div {
-  z-index: 2;
+  z-index: 1;
   display: block;
   background-color: #fddab7;
   &:focus-visible {
