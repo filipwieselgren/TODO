@@ -48,6 +48,8 @@ jQuery(function ($) {
     oneLine: true,
     timeFormat: "hh:mm tt",
   });
+
+  $("#ui-datepicker-div").css("displat", "none");
 });
 
 $(document).bind("mobileinit", function (event) {
