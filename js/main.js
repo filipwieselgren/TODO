@@ -21,13 +21,17 @@ const arrowDown = document.querySelector(".arrowDownContainer");
 
 window.onload = function () {
   start();
+  getFromLocal();
 };
 
-if (localStorage.getItem("newTodo") != null) {
-  let localStorageArray = localStorage.getItem("newTodo");
+function getFromLocal() {
+  console.log("getFromLocal():");
+  if (localStorage.getItem("newTodo") != null) {
+    let localStorageArray = localStorage.getItem("newTodo");
 
-  newTodo = JSON.parse(localStorageArray);
-} else {
+    newTodo = JSON.parse(localStorageArray);
+  } else {
+  }
 }
 
 //setDeadLine.placeholder = "Set a deadline";
@@ -175,7 +179,9 @@ function done(e, i) {
       document.querySelector(".btnDone").style.background = "transparent";
     }
   });
+
   localStorage.setItem("newTodo", JSON.stringify(todos));
+  getFromLocal();
 }
 
 function sortNoDeadline() {
