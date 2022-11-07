@@ -7,7 +7,6 @@ class Todo {
 }
 
 let newTodo = [];
-let btnTxt = false;
 let date = new Date();
 const addTodo = document.getElementById("addTodo");
 const inputTodo = document.getElementById("inputTodo");
@@ -60,31 +59,12 @@ $(document).bind("mobileinit", function (event) {
   $.extend($.mobile.zoom, { locked: false, enabled: true });
 });
 
-// setDeadLine.addEventListener("click", (event) => {
-//   event.preventDefault();
-
-//   btnTxt = !btnTxt;
-
-//   setBtnTxt();
-// });
-
-// function setBtnTxt() {
-//   if (btnTxt === false) {
-//     setDeadLine.innerHTML = "Set deadline ";
-//   } else {
-//     setDeadLine.innerHTML = "Close";
-//   }
-// }
-
 function addTodoBtn(event) {
   event.preventDefault();
   console.log("inputDate:", inputDate.value);
   let dateDeadline = inputDate.value;
-  // dateDeadline = dateDeadline.replace("T", " ");
-  let todoItem = new Todo(inputTodo.value, dateDeadline);
 
-  btnTxt = false;
-  // setBtnTxt();
+  let todoItem = new Todo(inputTodo.value, dateDeadline);
 
   if (todoItem.todoItem === "") {
     document.getElementById("inputTodo").classList.add("noTodo");
@@ -117,7 +97,7 @@ function createHtml() {
     tomorrow.setDate(tomorrow.getDate() + 1);
     yesterday.setDate(yesterday.getDate() - 1);
 
-    todoSpan.innerText = newTodo[i].todoItem;
+    todoSpan.innerText = `${newTodo[i].todoItem} `;
 
     const dead = newTodo.map((n) => n.deadline);
 
@@ -129,7 +109,7 @@ function createHtml() {
       inputD.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)
         ? `Deadline: Today at ${newTodo[i].deadline.split(" ")[1]} ${amOrPM}`
         : inputD == "Invalid Date"
-        ? "No deadline"
+        ? "Deadline: Have none"
         : inputD.setHours(0, 0, 0, 0) == tomorrow.setHours(0, 0, 0, 0)
         ? `Deadline: Tomorrow at ${newTodo[i].deadline.split(" ")[1]} ${amOrPM}`
         : inputD.setHours(0, 0, 0, 0) <= yesterday.setHours(0, 0, 0, 0)
@@ -177,19 +157,25 @@ function remove(e, i) {
 }
 
 function done(e, i) {
-  console.log("klick 1");
   e.target.parentElement.classList.toggle("mystyle");
   let taskText = e.target.parentElement.firstChild.textContent;
+  let splitTaskText = taskText.split(" ");
+
+  let index = splitTaskText.findIndex((s) => s == "Deadline:");
+
+  taskText = splitTaskText.slice(0, index);
+
+  console.log(taskText.join(" "));
 
   let todos = JSON.parse(localStorage.getItem("newTodo"));
 
   todos.forEach((todo) => {
-    if (todo.todoItem === taskText) {
+    if (todo.todoItem === taskText.join(" ")) {
       todo.done = true;
       document.querySelector(".btnDone").style.background = "transparent";
     }
+    localStorage.setItem("newTodo", JSON.stringify(todos));
   });
-  localStorage.setItem("newTodo", JSON.stringify(todos));
 }
 
 function sortNoDeadline() {
