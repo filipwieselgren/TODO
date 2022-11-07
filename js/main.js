@@ -172,8 +172,8 @@ function done(e, i) {
       todo.done = true;
       document.querySelector(".btnDone").style.background = "transparent";
     }
-    localStorage.setItem("newTodo", JSON.stringify(todos));
   });
+  localStorage.setItem("newTodo", JSON.stringify(todos));
 }
 
 function sortNoDeadline() {
