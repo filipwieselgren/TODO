@@ -25,7 +25,6 @@ window.onload = function () {
 };
 
 function getFromLocal() {
-  console.log("getFromLocal():");
   if (localStorage.getItem("newTodo") != null) {
     let localStorageArray = localStorage.getItem("newTodo");
 
@@ -65,7 +64,7 @@ $(document).bind("mobileinit", function (event) {
 
 function addTodoBtn(event) {
   event.preventDefault();
-  console.log("inputDate:", inputDate.value);
+
   let dateDeadline = inputDate.value;
 
   let todoItem = new Todo(inputTodo.value, dateDeadline);
@@ -87,7 +86,6 @@ function createHtml() {
   const ul = document.getElementById("listTodo");
   ul.innerHTML = "";
 
-  console.log("newTodo:", newTodo);
   for (let i = 0; i < newTodo.length; i++) {
     const todoLi = document.createElement("li");
     todoLi.classList.add("todoLi");
@@ -145,7 +143,6 @@ function createHtml() {
 
     ul.appendChild(todoLi);
 
-    console.log(newTodo[i]);
     if (newTodo[i].done === true) {
       todoLi.classList.add("mystyle");
     }
