@@ -93,6 +93,11 @@ function createHtml() {
   const ul = document.getElementById("listTodo");
   ul.innerHTML = "";
 
+  let doneTodos = newTodo.filter((n) => n.done == true);
+  let notDoneTodos = newTodo.filter((n) => n.done == false);
+
+  newTodo = notDoneTodos.concat(doneTodos);
+
   for (let i = 0; i < newTodo.length; i++) {
     const todoLi = document.createElement("li");
     todoLi.classList.add("todoLi");
@@ -186,6 +191,7 @@ function done(e, i) {
 
   localStorage.setItem("newTodo", JSON.stringify(todos));
   getFromLocal();
+  createHtml();
 }
 
 function sortNoDeadline() {
