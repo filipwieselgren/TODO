@@ -83,6 +83,7 @@ function createHtml() {
   const ul = document.getElementById("listTodo");
   ul.innerHTML = "";
 
+  console.log("newTodo:", newTodo);
   for (let i = 0; i < newTodo.length; i++) {
     const todoLi = document.createElement("li");
     todoLi.classList.add("todoLi");
@@ -140,6 +141,7 @@ function createHtml() {
 
     ul.appendChild(todoLi);
 
+    console.log(newTodo[i]);
     if (newTodo[i].done === true) {
       todoLi.classList.add("mystyle");
     }
