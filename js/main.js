@@ -49,7 +49,11 @@ jQuery(function ($) {
     timeFormat: "hh:mm tt",
   });
 
-  // $("#ui-datepicker-div").css("display", "block !important");
+  $("#ui-datepicker-div").css("display", "block");
+});
+
+jQuery(function ($) {
+  $("#ui-datepicker-div").css("display", "block");
 });
 
 $(document).bind("mobileinit", function (event) {
