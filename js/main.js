@@ -24,15 +24,22 @@ window.onload = function () {
   getFromLocal();
 };
 
+let localStorageArray;
 function getFromLocal() {
   if (localStorage.getItem("newTodo") != null) {
-    let localStorageArray = localStorage.getItem("newTodo");
+    localStorageArray = localStorage.getItem("newTodo");
 
     newTodo = JSON.parse(localStorageArray);
   } else {
   }
 }
 
+if (localStorage.getItem("newTodo") != null) {
+  localStorageArray = localStorage.getItem("newTodo");
+
+  newTodo = JSON.parse(localStorageArray);
+} else {
+}
 //setDeadLine.placeholder = "Set a deadline";
 // flatpickr(inputDate, {
 //   enableTime: true,
