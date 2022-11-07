@@ -230,7 +230,7 @@ body {
 }
 
 #ui-datepicker-div {
-  display: block !important;
+  display: block;
   background-color: #fddab7 !important;
   &:focus-visible {
     outline: 0;
@@ -259,6 +259,20 @@ body {
   border: 1px solid #ddd;
   background: #feddb6;
   color: #333;
+}
+
+.ui-datepicker .ui-datepicker-header {
+  background-color: #feddb6;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane button {
+  box-shadow: 3px 3px 1px 1px #494949;
+  background-color: transparent;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default {
+  box-shadow: 3px 3px 1px 1px #494949;
 }
 
 div[style="left"] {

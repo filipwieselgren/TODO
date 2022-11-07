@@ -200,9 +200,8 @@ body .sortContainer .arrowUp {
 }
 
 #ui-datepicker-div {
-  z-index: 2;
-  display: none !important;
-  background-color: white;
+  display: block;
+  background-color: #fddab7 !important;
 }
 #ui-datepicker-div:focus-visible {
   outline: 0;
@@ -230,7 +229,20 @@ body .sortContainer .arrowUp {
   border: 1px solid #ddd;
   background: #feddb6;
   color: #333;
-  border-radius: px;
+}
+
+.ui-datepicker .ui-datepicker-header {
+  background-color: #feddb6;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane button {
+  box-shadow: 3px 3px 1px 1px #494949;
+  background-color: transparent;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default {
+  box-shadow: 3px 3px 1px 1px #494949;
 }
 
 div[style=left] {
