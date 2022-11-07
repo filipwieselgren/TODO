@@ -165,8 +165,6 @@ function done(e, i) {
 
   taskText = splitTaskText.slice(0, index);
 
-  console.log(taskText.join(" "));
-
   let todos = JSON.parse(localStorage.getItem("newTodo"));
 
   todos.forEach((todo) => {
