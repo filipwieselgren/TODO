@@ -40,6 +40,7 @@ if (localStorage.getItem("newTodo") != null) {
   newTodo = JSON.parse(localStorageArray);
 } else {
 }
+
 //setDeadLine.placeholder = "Set a deadline";
 // flatpickr(inputDate, {
 //   enableTime: true,
